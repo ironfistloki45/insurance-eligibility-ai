@@ -5,41 +5,17 @@ function Login({ setToken }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async () => {
+  const handleLogin = () => {
 
-    try {
+    if (username === "admin" && password === "admin") {
 
-      const response = await fetch("http://127.0.0.1:8000/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          username: username,
-          password: password
-        })
-      });
+      alert("Login Successful ✅");
 
-      const data = await response.json();
+      setToken("loggedin");
 
-      console.log("LOGIN RESPONSE:", data);
+    } else {
 
-      if (response.ok) {
-
-        alert("Login Successful ✅");
-
-        setToken("loggedin");
-
-      } else {
-
-        alert("Login Failed ❌");
-
-      }
-
-    } catch (error) {
-
-      console.error(error);
-      alert("Server error");
+      alert("Invalid Credentials ❌");
 
     }
 
