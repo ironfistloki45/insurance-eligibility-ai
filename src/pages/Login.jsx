@@ -7,31 +7,14 @@ function Login({ setToken }) {
 
   const handleLogin = () => {
 
-  const cleanUsername = username.trim().toLowerCase();
-  const cleanPassword = password.trim();
-
-  console.log(cleanUsername);
-  console.log(cleanPassword);
-
-  if (cleanUsername === "admin" && cleanPassword === "admin") {
-
+    setToken("loggedin");
     localStorage.setItem("token", "loggedin");
 
-    alert("Login Successful ✅");
-
-    window.location.reload();
-
-  } else {
-
-    alert("Invalid Credentials ❌");
-
-  }
-
-};
+  };
 
   return (
 
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-600 to-indigo-700">
+    <div className="min-h-screen flex items-center justify-center bg-blue-900">
 
       <div className="bg-white p-10 rounded-xl shadow-xl w-96">
 
@@ -44,7 +27,7 @@ function Login({ setToken }) {
           placeholder="Username"
           className="w-full border p-2 mb-4 rounded"
           value={username}
-          onChange={(e)=>setUsername(e.target.value)}
+          onChange={(e) => setUsername(e.target.value)}
         />
 
         <input
@@ -52,20 +35,15 @@ function Login({ setToken }) {
           placeholder="Password"
           className="w-full border p-2 mb-4 rounded"
           value={password}
-          onChange={(e)=>setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
         />
 
         <button
           onClick={handleLogin}
-          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+          className="w-full bg-blue-600 text-white py-2 rounded"
         >
           Login
         </button>
-
-        <p className="text-xs text-gray-500 mt-6 text-center">
-          This AI tool assists with insurance eligibility verification.
-          Results may require manual confirmation.
-        </p>
 
       </div>
 
