@@ -7,21 +7,19 @@ function Login({ setToken }) {
 
   const handleLogin = () => {
 
-  const cleanUsername = username.trim();
-  const cleanPassword = password.trim();
+    console.log(username, password)
+    if (username === "admin" && password === "admin") {
+    
+      alert("Login Successful ✅");
+      setToken("loggedin");
 
-  if (cleanUsername === "admin" && cleanPassword === "admin") {
+    } else {
 
-    alert("Login Successful ✅");
-    setToken("loggedin");
+      alert("Invalid Credentials ❌");
 
-  } else {
+    }
 
-    alert("Invalid Credentials ❌");
-
-  }
-
-};
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-600 to-indigo-700">
