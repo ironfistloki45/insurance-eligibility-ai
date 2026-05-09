@@ -7,19 +7,27 @@ function Login({ setToken }) {
 
   const handleLogin = () => {
 
-    if (username === "admin" && password === "admin") {
+  const cleanUsername = username.trim().toLowerCase();
+  const cleanPassword = password.trim();
 
-      alert("Login Successful ✅");
+  console.log(cleanUsername);
+  console.log(cleanPassword);
 
-      setToken("loggedin");
+  if (cleanUsername === "admin" && cleanPassword === "admin") {
 
-    } else {
+    localStorage.setItem("token", "loggedin");
 
-      alert("Invalid Credentials ❌");
+    alert("Login Successful ✅");
 
-    }
+    window.location.reload();
 
-  };
+  } else {
+
+    alert("Invalid Credentials ❌");
+
+  }
+
+};
 
   return (
 
