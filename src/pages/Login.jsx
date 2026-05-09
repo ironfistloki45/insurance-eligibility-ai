@@ -10,7 +10,6 @@ function Login({ setToken }) {
     if (username === "admin" && password === "admin") {
 
       alert("Login Successful ✅");
-
       setToken("loggedin");
 
     } else {
@@ -22,7 +21,6 @@ function Login({ setToken }) {
   };
 
   return (
-
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-600 to-indigo-700">
 
       <div className="bg-white p-10 rounded-xl shadow-xl w-96">
@@ -36,7 +34,7 @@ function Login({ setToken }) {
           placeholder="Username"
           className="w-full border p-2 mb-4 rounded"
           value={username}
-          onChange={(e)=>setUsername(e.target.value)}
+          onChange={(e) => setUsername(e.target.value)}
         />
 
         <input
@@ -44,7 +42,7 @@ function Login({ setToken }) {
           placeholder="Password"
           className="w-full border p-2 mb-4 rounded"
           value={password}
-          onChange={(e)=>setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
         />
 
         <button
@@ -54,17 +52,10 @@ function Login({ setToken }) {
           Login
         </button>
 
-        <p className="text-xs text-gray-500 mt-6 text-center">
-          This AI tool assists with insurance eligibility verification.
-          Results may require manual confirmation.
-        </p>
-
       </div>
 
     </div>
-
   );
-
 }
 
 export default Login;
